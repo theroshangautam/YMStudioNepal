@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #00f0ff;
+  --color-accent-hover: #00c3cc;
+  --color-card: #1a1a1a;
+  --font-primary: 'Outfit', 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-primary);
+    background-color: #09090b; /* zinc-950 */
+    color: #e4e4e7; /* zinc-200 */
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+/* Accessibility & Resets */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.5);
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: var(--color-accent);
+  color: #000;
+  padding: 8px 16px;
+  z-index: 100;
+  font-weight: bold;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Text Gradients & Utilities missed by compiler potentially */
+.text-gradient {
+  background: linear-gradient(90deg, #00f0ff, #0077ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Soundwave animation for About section */
+@keyframes soundwave {
+  0% { transform: scaleY(0.5); }
+  100% { transform: scaleY(1); }
+}
+
+.bar {
+  width: 12px;
+  background-color: var(--color-accent);
+  border-radius: 6px;
+  animation: soundwave 1.5s ease-in-out infinite alternate;
+}
+
+.bar-1 { height: 40%; animation-delay: 0.1s; }
+.bar-2 { height: 80%; animation-delay: 0.3s; }
+.bar-3 { height: 60%; animation-delay: 0.5s; opacity: 0.8; }
+.bar-4 { height: 100%; animation-delay: 0.2s; box-shadow: 0 0 15px var(--color-accent); }
+.bar-5 { height: 70%; animation-delay: 0.4s; }
+.bar-6 { height: 50%; animation-delay: 0.6s; opacity: 0.7; }
+.bar-7 { height: 30%; animation-delay: 0.2s; opacity: 0.5; }

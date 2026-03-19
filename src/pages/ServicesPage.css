@@ -1,0 +1,44 @@
+.services-page {
+  padding-top: 80px; /* Accounts for navbar */
+  min-height: calc(100vh - 80px);
+}
+
+.page-header {
+  background: var(--card-bg);
+  padding: 4rem 0;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 4rem;
+}
+
+.page-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.page-subtitle {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.services-container {
+  padding-bottom: 6rem;
+}
+
+.services-category {
+  margin-bottom: 6rem;
+}
+
+.category-title {
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 1rem;
+  display: inline-block;
+}
+
+/* Inheriting .services-grid and .service-card from existing Services.css imported globally via components/Services.css (which we should just copy here or import) 
+Wait, the styles are in components/Services.css, so we can just use those class names!
+*/

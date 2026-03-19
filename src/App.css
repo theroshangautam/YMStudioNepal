@@ -1,0 +1,11 @@
+/* App Specific component styles that aren't global */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
