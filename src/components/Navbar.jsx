@@ -12,6 +12,55 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  const renderNavLinks = () => (
+    <>
+      <li>
+        <NavLink 
+          to="/" 
+          onClick={closeMenu} 
+          className={({ isActive }) => 
+            `font-medium p-2 rounded transition-colors duration-200 outline-none focus-visible:ring-4 focus-visible:ring-cyan-500/50 ${isActive ? 'text-[#00f0ff]' : 'hover:text-[#00f0ff]'}`
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink 
+          to="/services" 
+          onClick={closeMenu} 
+          className={({ isActive }) => 
+            `font-medium p-2 rounded transition-colors duration-200 outline-none focus-visible:ring-4 focus-visible:ring-cyan-500/50 ${isActive ? 'text-[#00f0ff]' : 'hover:text-[#00f0ff]'}`
+          }
+        >
+          Services
+        </NavLink>
+      </li>
+      <li>
+        <NavLink 
+          to="/about" 
+          onClick={closeMenu} 
+          className={({ isActive }) => 
+            `font-medium p-2 rounded transition-colors duration-200 outline-none focus-visible:ring-4 focus-visible:ring-cyan-500/50 ${isActive ? 'text-[#00f0ff]' : 'hover:text-[#00f0ff]'}`
+          }
+        >
+          About Us
+        </NavLink>
+      </li>
+      <li>
+        <NavLink 
+          to="/contact" 
+          onClick={closeMenu} 
+          className={({ isActive }) => 
+            `font-medium p-2 rounded transition-colors duration-200 outline-none focus-visible:ring-4 focus-visible:ring-cyan-500/50 ${isActive ? 'text-[#00f0ff]' : 'hover:text-[#00f0ff]'}`
+          }
+        >
+          Contact Us
+        </NavLink>
+      </li>
+    </>
+  );
+
   return (
     <header className="fixed top-0 left-0 w-full bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800 z-50 py-4 transition-all duration-300">
       <a href="#main-content" className="skip-link">Skip to main content</a>
@@ -34,63 +83,27 @@ const Navbar = () => {
           </span>
         </Link>
         
-        {/* Navigation */}
+        {/* Desktop Navigation */}
         <nav 
-          className={`
-            flex items-center absolute md:static top-0 left-0 w-full md:w-auto h-screen md:h-auto 
-            bg-zinc-950 md:bg-transparent flex-col md:flex-row justify-center md:justify-end 
-            transform ${isOpen ? 'translate-y-0' : '-translate-y-full'} md:translate-y-0 
-            transition-transform duration-300 ease-in-out
-          `} 
-          aria-label="Main Navigation"
+          className="hidden md:flex items-center" 
+          aria-label="Desktop Navigation"
         >
-          <ul className="flex flex-col md:flex-row items-center gap-8 md:gap-8 text-2xl md:text-base">
-            <li>
-              <NavLink 
-                to="/" 
-                onClick={closeMenu} 
-                className={({ isActive }) => 
-                  `font-medium p-2 rounded transition-colors duration-200 outline-none focus-visible:ring-4 focus-visible:ring-cyan-500/50 ${isActive ? 'text-[#00f0ff]' : 'hover:text-[#00f0ff]'}`
-                }
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink 
-                to="/services" 
-                onClick={closeMenu} 
-                className={({ isActive }) => 
-                  `font-medium p-2 rounded transition-colors duration-200 outline-none focus-visible:ring-4 focus-visible:ring-cyan-500/50 ${isActive ? 'text-[#00f0ff]' : 'hover:text-[#00f0ff]'}`
-                }
-              >
-                Services
-              </NavLink>
-            </li>
-            <li>
-              <NavLink 
-                to="/about" 
-                onClick={closeMenu} 
-                className={({ isActive }) => 
-                  `font-medium p-2 rounded transition-colors duration-200 outline-none focus-visible:ring-4 focus-visible:ring-cyan-500/50 ${isActive ? 'text-[#00f0ff]' : 'hover:text-[#00f0ff]'}`
-                }
-              >
-                About Us
-              </NavLink>
-            </li>
-            <li>
-              <NavLink 
-                to="/contact" 
-                onClick={closeMenu} 
-                className={({ isActive }) => 
-                  `font-medium p-2 rounded transition-colors duration-200 outline-none focus-visible:ring-4 focus-visible:ring-cyan-500/50 ${isActive ? 'text-[#00f0ff]' : 'hover:text-[#00f0ff]'}`
-                }
-              >
-                Contact Us
-              </NavLink>
-            </li>
+          <ul className="flex flex-row items-center gap-8 text-base">
+            {renderNavLinks()}
           </ul>
         </nav>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <nav 
+            className="md:hidden flex items-center absolute top-0 left-0 w-full h-screen bg-zinc-950 flex-col justify-center" 
+            aria-label="Mobile Navigation"
+          >
+            <ul className="flex flex-col items-center gap-8 text-2xl">
+              {renderNavLinks()}
+            </ul>
+          </nav>
+        )}
 
         {/* Hamburger Mobile Menu Button */}
         <button 
