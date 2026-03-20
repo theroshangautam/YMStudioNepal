@@ -93,18 +93,6 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <nav 
-            className="md:hidden flex items-center absolute top-0 left-0 w-full h-screen bg-zinc-950 flex-col justify-center" 
-            aria-label="Mobile Navigation"
-          >
-            <ul className="flex flex-col items-center gap-8 text-2xl">
-              {renderNavLinks()}
-            </ul>
-          </nav>
-        )}
-
         {/* Hamburger Mobile Menu Button */}
         <button 
           className="md:hidden z-[60] p-2 focus-visible:ring-4 focus-visible:ring-cyan-500/50 rounded outline-none" 
@@ -118,6 +106,18 @@ const Navbar = () => {
             <span className={`absolute left-0 w-full h-0.5 bg-neutral-200 transition-all duration-300 ${isOpen ? 'top-2 -rotate-45' : 'top-4'}`}></span>
           </div>
         </button>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <nav 
+            className="md:hidden flex items-center absolute top-0 left-0 w-full h-screen bg-zinc-950 flex-col justify-center" 
+            aria-label="Mobile Navigation"
+          >
+            <ul className="flex flex-col items-center gap-8 text-2xl">
+              {renderNavLinks()}
+            </ul>
+          </nav>
+        )}
       </div>
     </header>
   );
